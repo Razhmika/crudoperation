@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD operation</title>
+</head>
+<body>
+    <style>
+        #delete{
+            width:80px;
+            height:30px;
+            background-color: orangered;
+            color: black;
+        }
+        #input{
+            border: 2px solid black;
+         margin-left: 25px;
+        }
+        .button1{
+            background-color: purple;
+            color: white;
+            width: 80px;
+            height:30px;
+            margin-left: 50px;
+        }
+        #editing{
+       margin-left: 5px;
+        background-color: rgb(12, 12, 181);
+            color: white;
+            width: 80px;
+            height:30px;
+        }
+        #save{
+            margin-left: 5px;
+            background-color: rgb(12, 178, 181);
+            color: white;
+            width: 80px;
+            height:30px;
+        }
+
+    </style>
+     <input id="input" type="text" value="">
+      <button class="button1">add</button>
+      <div class="container"></div>
+      <script>
+        const input=document.querySelector("#input");
+        const btn=document.querySelector(".button1");
+        const container=document.querySelector(".container");
+
+        btn.addEventListener("click",()=>
+    {   const wrapper=document.createElement("div")
+        const para=document.createElement("p");
+        const delee=document.createElement("button");
+        const edit=document.createElement("button");
+        const save=document.createElement("button");
+        save.id="save";
+        edit.id="editing";
+        edit.textContent="edit";
+        wrapper.append(para);
+        wrapper.append(delee);
+        wrapper.append(edit);
+        wrapper.append(save);
+        delee.id="delete";
+        delee.textContent="delete";
+        para.textContent=input.value;
+        save.textContent="save";
+       input.value="";
+        delee.addEventListener("click",()=>
+{      wrapper.remove(para);
+    
+
+})
+edit.addEventListener("click",()=>
+{   
+    input.value=para.textContent;
+   
+      save.addEventListener("click",()=>
+{
+     para.textContent=input.value;
+})
+})
+container.append(wrapper);
+    })
+   
+      </script>
+</body>
+</html>
